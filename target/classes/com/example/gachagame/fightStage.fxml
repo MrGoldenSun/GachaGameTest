@@ -14,12 +14,17 @@
       </ImageView>
       <ImageView fx:id="playerStickman" fitHeight="150.0" fitWidth="200.0" layoutX="42.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Red%20Stickman.png" />
+            <Image url="@../../../RedStickman.png" />
          </image></ImageView>
       <ImageView fx:id="enemyStickman" fitHeight="150.0" fitWidth="200.0" layoutX="459.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../Blue%20Stickman.png" />
+            <Image url="@../../../BlueStickman.png" />
          </image></ImageView>
       <Button layoutX="68.0" layoutY="343.0" mnemonicParsing="false" onAction="#attackButton" text="Attack!" />
+      <ImageView fx:id="POW" fitHeight="110.0" fitWidth="103.0" layoutX="386.0" layoutY="207.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../POW.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

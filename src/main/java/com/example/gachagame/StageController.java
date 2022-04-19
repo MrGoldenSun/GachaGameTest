@@ -1,10 +1,8 @@
 package com.example.gachagame;
 
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -14,21 +12,33 @@ public class StageController {
     private ImageView playerStickman;
     @FXML
     private ImageView enemyStickman;
+    @FXML
+    private ImageView POW;
 
-    public static Image redStickman = new Image("Red Stickman.png");
-    public static Image blueStickman = new Image("Blue Stickman.png");
+    public static Image redStickman = new Image("RedStickman.png");
+    public static Image blueStickman = new Image("BlueStickman.png");
 
 
-
-
-    public void attackButton (ActionEvent e){
+    public void attackButton (ActionEvent e) throws InterruptedException {
         moveImage(playerStickman);
 
     }
 
+    private class Timer extends AnimationTimer{
+        @Override
+        public void handle(long l) {
+            POW.setOpacity(POW.getOpacity() - .005);
+            if (POW.getOpacity() == 0){
+                stop();
+                System.out.println("OP IS NOW 0");
+            }
+        }
 
-    public void moveImage(ImageView image1) {
+    }
+
+    public void moveImage(ImageView image1) throws InterruptedException {
         TranslateTransition transition = new TranslateTransition();
+        Timer myTime = new Timer();
         transition.setNode(image1);
         transition.setDuration(Duration.seconds(.5));
         transition.setByX(350);
@@ -36,6 +46,9 @@ public class StageController {
         transition.setCycleCount(2);
         transition.setAutoReverse(true);
         transition.play();
+        POW.setOpacity(1);
+        myTime.start();
+
     }
 
     public void rotateImage(ImageView image1){

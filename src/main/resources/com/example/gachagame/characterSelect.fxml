@@ -16,12 +16,12 @@
       </ImageView>
       <ImageView fx:id="goldenGrinner" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="75.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../golden%20grinner.png" />
+            <Image url="@../../../goldenGrinner.png" />
          </image>
       </ImageView>
       <ImageView fx:id="greedyGrinner" disable="true" fitHeight="150.0" fitWidth="200.0" layoutX="301.0" layoutY="75.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../greedy%20grinner.jpg" />
+            <Image url="@../../../greedyGrinner.jpg" />
          </image>
       </ImageView>
    </children>
