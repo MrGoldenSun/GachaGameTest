@@ -3,6 +3,7 @@ package com.example.gachagame;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -14,6 +15,8 @@ public class StageController {
     private ImageView enemyStickman;
     @FXML
     private ImageView POW;
+    @FXML
+    private Button attackButton;
 
     public static Image redStickman = new Image("RedStickman.png");
     public static Image blueStickman = new Image("BlueStickman.png");
@@ -25,12 +28,26 @@ public class StageController {
     }
 
     private class Timer extends AnimationTimer{
+        public int timing = 0;
         @Override
         public void handle(long l) {
-            POW.setOpacity(POW.getOpacity() - .005);
-            if (POW.getOpacity() == 0){
+            if (timing == 0){
                 stop();
+                attackButton.setDisable(false);
+            }
+
+            else if (timing == 130){
+                POW.setOpacity(0);
+                timing -= 1;
                 System.out.println("OP IS NOW 0");
+            }
+
+            else if (timing == 190){
+                POW.setOpacity(1);
+                timing -= 1;
+            }
+            else {
+                timing -= 1;
             }
         }
 
@@ -46,7 +63,8 @@ public class StageController {
         transition.setCycleCount(2);
         transition.setAutoReverse(true);
         transition.play();
-        POW.setOpacity(1);
+        attackButton.setDisable(true);
+        myTime.timing = 250;
         myTime.start();
 
     }
