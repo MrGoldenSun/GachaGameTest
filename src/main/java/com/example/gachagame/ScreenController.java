@@ -15,8 +15,6 @@ public class ScreenController {
     @FXML
     ImageView greedyGrinner;
 
-
-
     @FXML
     void startGameAction(ActionEvent event) throws IOException {
         gameSettings.switchScenes("characterSelect.fxml");

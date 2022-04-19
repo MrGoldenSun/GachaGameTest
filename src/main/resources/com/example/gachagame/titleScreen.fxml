@@ -13,9 +13,14 @@
             <Image url="@../../../titleSplash.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="playGame" layoutX="264.0" layoutY="326.0" mnemonicParsing="false" onAction="#startGameAction" text="PLAY!">
+      <Button fx:id="levelSelectButton" layoutX="448.0" layoutY="341.0" mnemonicParsing="false" onAction="#startGameAction" prefHeight="44.0" prefWidth="138.0" text="Level Select">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="inventoryButton" layoutX="14.0" layoutY="341.0" mnemonicParsing="false" onAction="#startGameAction" prefHeight="44.0" prefWidth="138.0" text="Inventory">
+         <font>
+            <Font size="21.0" />
          </font>
       </Button>
    </children>
