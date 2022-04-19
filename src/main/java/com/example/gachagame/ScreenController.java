@@ -2,6 +2,7 @@ package com.example.gachagame;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import java.io.IOException;
 
@@ -16,8 +17,21 @@ public class ScreenController {
     ImageView greedyGrinner;
 
     @FXML
-    void startGameAction(ActionEvent event) throws IOException {
+    Label
+
+    @FXML
+    void openInventory(ActionEvent event) throws IOException {
         gameSettings.switchScenes("characterSelect.fxml");
+    }
+
+    @FXML
+    void openLevels(ActionEvent event) throws IOException {
+        gameSettings.switchScenes("levelSelectScreen.fxml");
+    }
+
+    @FXML
+    void openGacha(ActionEvent event) throws IOException {
+        gameSettings.switchScenes("gachaScreen.fxml");
     }
 
     @FXML
