@@ -36,13 +36,13 @@ public class StageController {
                 attackButton.setDisable(false);
             }
 
-            else if (timing == 130){
+            else if (timing == 60){
                 POW.setOpacity(0);
                 timing -= 1;
                 System.out.println("OP IS NOW 0");
             }
 
-            else if (timing == 190){
+            else if (timing == 120){
                 POW.setOpacity(1);
                 timing -= 1;
             }
@@ -64,7 +64,7 @@ public class StageController {
         transition.setAutoReverse(true);
         transition.play();
         attackButton.setDisable(true);
-        myTime.timing = 250;
+        myTime.timing = 180;
         myTime.start();
 
     }
