@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -11,6 +12,16 @@ public class LevelSelectScreenController {
 
     public GachaGameApplication gameSettings = new GachaGameApplication();
     public String color = "blue";
+
+    // TESTING PURPOSES
+    @FXML
+    private Label testText;
+
+    @FXML
+    void changeText(ActionEvent event) {
+        testText.setText("AWESOME");
+    }
+    // TESTING PURPOSES
 
     @FXML
     void backToTitle(ActionEvent event) throws IOException {
