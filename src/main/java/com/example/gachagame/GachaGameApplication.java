@@ -16,15 +16,15 @@ public class GachaGameApplication extends Application {
     public void start(Stage stage) throws IOException{
         primaryStage = stage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("titleScreen.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
+        Parent root = loader.load();
         primaryStage.setScene(new Scene(root));
         primaryStage.centerOnScreen();
         primaryStage.setTitle("Gacha Game");
         primaryStage.show();
     }
 
-    public void switchScenes(String fxml) throws IOException {
-        Parent newScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
+    public void switchScenes(Parent newScene) throws IOException {
         primaryStage.getScene().setRoot(newScene);
     }
 

@@ -2,6 +2,8 @@ package com.example.gachagame;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 
@@ -29,7 +31,9 @@ public class CharacterInventoryController {
 
     @FXML
     void openTitleScreen() throws IOException {
-        gameSettings.switchScenes("titleScreen.fxml");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
+        Parent root = loader.load();
+        gameSettings.switchScenes(root);
     }
 
     @FXML

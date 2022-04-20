@@ -16,12 +16,17 @@
          <image>
             <Image url="@../../../RedStickmanNoBackground.png" />
          </image></ImageView>
-      <ImageView fx:id="enemyStickman" fitHeight="150.0" fitWidth="200.0" layoutX="459.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="enemyStickman" fitHeight="150.0" fitWidth="200.0" layoutX="425.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../BlueStickman.png" />
+            <Image url="@../../../transparentblue.png" />
          </image></ImageView>
-      <Button fx:id="attackButton" layoutX="68.0" layoutY="343.0" mnemonicParsing="false" onAction="#attackButton" text="Attack!" />
-      <ImageView fx:id="POW" fitHeight="110.0" fitWidth="103.0" layoutX="386.0" layoutY="207.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="attackButton" layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#attackButton" prefHeight="56.0" prefWidth="119.0" text="Begin Combat!" />
+      <ImageView fx:id="rightPOW" fitHeight="110.0" fitWidth="103.0" layoutX="386.0" layoutY="207.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../POW.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftPOW" fitHeight="110.0" fitWidth="103.0" layoutX="98.0" layoutY="207.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../POW.png" />
          </image>
