@@ -2,29 +2,73 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gachagame.ScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gachagame.CharacterInventoryController">
    <children>
-      <Button fx:id="blueStickman" layoutX="262.0" layoutY="87.0" mnemonicParsing="false" onAction="#pickBlueStickman" prefHeight="106.0" prefWidth="77.0" text="Blue Stickman" />
+      <Button fx:id="Stickman1" layoutX="125.0" layoutY="88.0" mnemonicParsing="false" onAction="#pickStickman1" prefHeight="106.0" prefWidth="77.0" text="Stickman1" />
+      <Button fx:id="Stickman2" layoutX="262.0" layoutY="87.0" mnemonicParsing="false" onAction="#pickStickman2" prefHeight="106.0" prefWidth="77.0" text="Stickman2" />
+      <Button fx:id="Stickman3" layoutX="396.0" layoutY="88.0" mnemonicParsing="false" onAction="#pickStickman3" prefHeight="106.0" prefWidth="77.0" text="Stickman3" />
+      <Button fx:id="Stickman4" layoutX="125.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman4" prefHeight="106.0" prefWidth="77.0" text="Stickman4" />
+      <Button fx:id="Stickman5" layoutX="262.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman5" prefHeight="106.0" prefWidth="77.0" text="Stickman5" />
+      <Button fx:id="Stickman6" layoutX="396.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman6" prefHeight="106.0" prefWidth="77.0" text="Stickman6" />
       <Label fx:id="blueStickmanInfo" layoutX="285.0" layoutY="166.0" prefHeight="64.0" prefWidth="164.0" text="JoJo from Amsterdam. Relentless fork in outlet child. Accidently gained powers and joined the arena!">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="125.0" layoutY="88.0" mnemonicParsing="false" onAction="#pickRedStickman" prefHeight="106.0" prefWidth="77.0" text="Red Stickman" />
       <ImageView disable="true" fitHeight="400.0" fitWidth="600.0" layoutY="-1.0" pickOnBounds="true">
          <image>
             <Image url="@../../../characterSelect.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="20.0" layoutY="22.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="Back">
+      <Button layoutX="20.0" layoutY="22.0" mnemonicParsing="false" onAction="#openTitleScreen" prefHeight="23.0" prefWidth="90.0" text="Back">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
+      <SplitPane fx:id="Stickman1Info" disable="true" dividerPositions="0.34296028880866425" layoutX="30.0" layoutY="20.0" opacity="0.0" prefHeight="361.0" prefWidth="556.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="299.0" fitWidth="180.0" layoutX="4.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../RedStickmanNoBackground.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="372.0">
+               <children>
+                  <Label alignment="CENTER" layoutY="40.0" prefHeight="24.0" prefWidth="361.0" text="Gorforbius The Chosen" textAlignment="CENTER">
+                     <font>
+                        <Font name="Comic Sans MS" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="76.0" prefHeight="45.0" prefWidth="317.0" text="Hometown: Austin, Texas">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextFlow layoutX="10.0" layoutY="121.0" prefHeight="200.0" prefWidth="317.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gorforbius is a simple stick man with a simple stick plan. Keep on swinging at things until they stop moving. His favorite things include big swords, the color red, and stale bread. He is noteable for having an IQ of 120 and placing 4th in Science Olympiad.">
+                           <font>
+                              <Font name="Comic Sans MS" size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+                  <Button layoutX="285.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeMenu" prefHeight="25.0" prefWidth="63.0" text="Close" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>
