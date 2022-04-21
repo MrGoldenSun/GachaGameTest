@@ -27,6 +27,8 @@ public class LevelSelectScreenController {
     void backToTitle(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
         Parent root = loader.load();
+        ScreenController screenController = loader.getController();
+        screenController.initializeAssets();
         gameSettings.switchScenes(root);
     }
 
@@ -40,12 +42,12 @@ public class LevelSelectScreenController {
     }
 
     @FXML
-    void startLevel2(ActionEvent event) throws IOException {
+    void startLevel2(ActionEvent event) {
         System.out.println("Level 2");
     }
 
     @FXML
-    void startLevel3(ActionEvent event) throws IOException {
+    void startLevel3(ActionEvent event) {
         System.out.println("Level 3");
     }
 

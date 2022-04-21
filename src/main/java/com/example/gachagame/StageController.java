@@ -3,13 +3,26 @@ package com.example.gachagame;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class StageController {
+
+    public GachaGameApplication gameSettings = new GachaGameApplication();
+
+
     @FXML
     private ImageView playerStickman;
     @FXML
@@ -28,17 +41,25 @@ public class StageController {
     private Label playerHP;
     @FXML
     private Label enemyHP;
+    @FXML
+    private ProgressBar playerHPBar;
+    @FXML
+    private ProgressBar enemyHPBar;
+    @FXML
+    private SplitPane winScreen;
+    @FXML
+    private SplitPane loseScreen;
 
     public CharacterCopy redStickman = new CharacterCopy(8, 3, 20, 95, 25,
             25, "RedStickmanNoBackground.png");
     public CharacterCopy blueStickman = new CharacterCopy(5, 2, 30, 110, 20,
             20, "transparentblue.png");
-    public CharacterCopy goblinStickman = new CharacterCopy(4, 1, 20, 70, 16,
+    public CharacterCopy goblinStickman = new CharacterCopy(11, 1, 20, 70, 16,
             16, "goblin.png");
 
     public CharacterCopy playerCharacter;
     public CharacterCopy enemyCharacter;
-
+    public boolean win;
     public String chosenColor = "";
 
     public void setCharacters(String colorChoice){
@@ -54,7 +75,11 @@ public class StageController {
             System.out.println("RED");
         }
         playerHP.setText(Integer.toString(playerCharacter.getHP()));
+        playerHPBar.setProgress(1.0);
+        playerHPBar.setStyle("-fx-accent: green");
         enemyStickman.setImage(new Image(goblinStickman.getCharacterPortrait()));
+        enemyHPBar.setProgress(1.0);
+        enemyHPBar.setStyle("-fx-accent: red");
         enemyCharacter = goblinStickman;
         enemyStickman.setScaleX(-1);
         enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
@@ -65,7 +90,31 @@ public class StageController {
         combatSequence combat = new combatSequence();
         combat.timing = 600;
         combat.start();
+    }
 
+    public void combatEnded() throws IOException {
+        if (win){
+            winScreen.setDisable(false);
+            winScreen.setOpacity(1);
+            File file = new File("coinAmount.txt");
+            Scanner input = new Scanner(file);
+            int total = Integer.parseInt(input.next());
+            FileWriter fileWriter = new FileWriter("coinAmount.txt");
+            fileWriter.write(Integer.toString(total + 1));
+            fileWriter.close();
+        }
+        else {
+            loseScreen.setDisable(false);
+            loseScreen.setOpacity(1);
+        }
+    }
+
+    public void backToMenu(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
+        Parent root = loader.load();
+        ScreenController screenController = loader.getController();
+        screenController.initializeAssets();
+        gameSettings.switchScenes(root);
 
     }
 
@@ -90,6 +139,12 @@ public class StageController {
                 }
                 else {
                     stop();
+                    win = false;
+                    try {
+                        combatEnded();
+                    } catch (IOException e) {
+                        System.out.println("TABIO GOT AN ERROR");
+                    }
                 }
 
             }
@@ -100,6 +155,12 @@ public class StageController {
                 }
                 else {
                     stop();
+                    win = true;
+                    try {
+                        combatEnded();
+                    } catch (IOException e) {
+                        System.out.println("TABIO GOT AN ERROR");
+                    }
                 }
             }
             else if (timing == 0){
@@ -117,6 +178,7 @@ public class StageController {
         public int damageDealt = 0;
         public CharacterCopy currentChar;
         public Label charHP;
+        public ProgressBar charProgressBar;
         @Override
         public void handle(long l) {
             if (timing == 0){
@@ -136,6 +198,7 @@ public class StageController {
                     currentChar.setHP(0);
                 }
                 charHP.setText(Integer.toString(currentChar.getHP()));
+                charProgressBar.setProgress((double) currentChar.getHP() / currentChar.getMHP());
                 timing -= 1;
             }
             else {
@@ -161,6 +224,7 @@ public class StageController {
         int damage = playerCharacter.getAttack() - enemyCharacter.getDefense();
         myTime.currentChar = enemyCharacter;
         myTime.charHP = enemyHP;
+        myTime.charProgressBar = enemyHPBar;
         if (HIT){
             myTime.damageDealt = damage;
             myTime.selectedImage = rightPOW;
@@ -199,6 +263,7 @@ public class StageController {
         int damage = enemyCharacter.getAttack() - playerCharacter.getDefense();
         myTime.currentChar = playerCharacter;
         myTime.charHP = playerHP;
+        myTime.charProgressBar = playerHPBar;
         if (HIT){
             myTime.damageDealt = damage;
             myTime.selectedImage = leftPOW;

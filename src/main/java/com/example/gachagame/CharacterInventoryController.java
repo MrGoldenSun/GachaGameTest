@@ -33,6 +33,8 @@ public class CharacterInventoryController {
     void openTitleScreen() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
         Parent root = loader.load();
+        ScreenController screenController = loader.getController();
+        screenController.initializeAssets();
         gameSettings.switchScenes(root);
     }
 
