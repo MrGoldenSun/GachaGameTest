@@ -37,6 +37,8 @@ public class ScreenController {
     void openLevels(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("levelSelectScreen.fxml"));
         Parent root = loader.load();
+        LevelSelectScreenController levelSelectScreenController = loader.getController();
+        levelSelectScreenController.initializeLevels();
         gameSettings.switchScenes(root);
     }
 

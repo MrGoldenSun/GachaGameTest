@@ -16,11 +16,11 @@
             <Image url="@../../../arena1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="playerStickman" fitHeight="150.0" fitWidth="200.0" layoutX="42.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="playerStickmanImage" fitHeight="150.0" fitWidth="200.0" layoutX="42.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../RedStickmanNoBackground.png" />
          </image></ImageView>
-      <ImageView fx:id="enemyStickman" fitHeight="150.0" fitWidth="200.0" layoutX="426.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="enemyStickmanImage" fitHeight="150.0" fitWidth="200.0" layoutX="426.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../transparentblue.png" />
          </image></ImageView>

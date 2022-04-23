@@ -16,80 +16,123 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StageController {
 
     public GachaGameApplication gameSettings = new GachaGameApplication();
 
-
     @FXML
-    private ImageView playerStickman;
-    @FXML
-    private ImageView enemyStickman;
-    @FXML
-    private ImageView rightPOW;
-    @FXML
-    private ImageView leftPOW;
-    @FXML
-    private ImageView rightMISS;
-    @FXML
-    private ImageView leftMISS;
+    private ImageView playerStickmanImage, enemyStickmanImage, rightPOW, leftPOW, rightMISS, leftMISS;
     @FXML
     private Button attackButton;
     @FXML
-    private Label playerHP;
+    private Label playerHP, enemyHP;
     @FXML
-    private Label enemyHP;
+    private ProgressBar playerHPBar, enemyHPBar;
     @FXML
-    private ProgressBar playerHPBar;
-    @FXML
-    private ProgressBar enemyHPBar;
-    @FXML
-    private SplitPane winScreen;
-    @FXML
-    private SplitPane loseScreen;
+    private SplitPane winScreen, loseScreen;
 
-    public CharacterCopy redStickman = new CharacterCopy(8, 3, 20, 95, 25,
-            25, "RedStickmanNoBackground.png");
-    public CharacterCopy blueStickman = new CharacterCopy(5, 2, 30, 110, 20,
-            20, "transparentblue.png");
-    public CharacterCopy goblinStickman = new CharacterCopy(11, 1, 20, 70, 16,
-            16, "goblin.png");
-
-    public CharacterCopy playerCharacter;
-    public CharacterCopy enemyCharacter;
+    public CharacterCopy playerCharacter, enemyCharacter;
     public boolean win;
-    public String chosenColor = "";
+    public String chosenColor = "", currentLevel;
 
-    public void setCharacters(String colorChoice){
+    public void characterSelect(String colorChoice){
         chosenColor = colorChoice;
         if (chosenColor.equals("blue")){
-            playerStickman.setImage(new Image(blueStickman.getCharacterPortrait()));
-            playerCharacter = blueStickman;
+            playerCharacter = new StickmanBlue();
+            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
             System.out.println("BLUE");
         }
         else if (chosenColor.equals("red")){
-            playerStickman.setImage(new Image(redStickman.getCharacterPortrait()));
-            playerCharacter = redStickman;
+            playerCharacter = new StickmanRed();
+            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
             System.out.println("RED");
         }
+        else if (chosenColor.equals("farmer")){
+            playerCharacter = new StickmanFarmer();
+            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+            System.out.println("FARMER");
+        }
+        else if (chosenColor.equals("goblin")){
+            playerCharacter = new StickmanGoblin();
+            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+            System.out.println("GOBLIN");
+        }
+    }
+
+    public void loadLevel1(String colorChoice){
+        characterSelect(colorChoice);
         playerHP.setText(Integer.toString(playerCharacter.getHP()));
         playerHPBar.setProgress(1.0);
         playerHPBar.setStyle("-fx-accent: green");
-        enemyStickman.setImage(new Image(goblinStickman.getCharacterPortrait()));
+        enemyCharacter = new StickmanGoblin();
+        enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
+        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
         enemyHPBar.setProgress(1.0);
         enemyHPBar.setStyle("-fx-accent: red");
-        enemyCharacter = goblinStickman;
-        enemyStickman.setScaleX(-1);
-        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
+        enemyStickmanImage.setScaleX(-1);
+        currentLevel = "level1";
     }
 
+    public void loadLevel2(String colorChoice){
+        characterSelect(colorChoice);
+        playerHP.setText(Integer.toString(playerCharacter.getHP()));
+        playerHPBar.setProgress(1.0);
+        playerHPBar.setStyle("-fx-accent: green");
+        enemyCharacter = new StickmanBlue();
+        enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
+        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
+        enemyHPBar.setProgress(1.0);
+        enemyHPBar.setStyle("-fx-accent: red");
+        enemyStickmanImage.setScaleX(-1);
+        currentLevel = "level2";
+    }
+
+    public void loadLevel3(String colorChoice){
+        // WILL PUT 3 STAR HERE
+        characterSelect(colorChoice);
+        playerHP.setText(Integer.toString(playerCharacter.getHP()));
+        playerHPBar.setProgress(1.0);
+        playerHPBar.setStyle("-fx-accent: green");
+
+        // CREATE ENEMYSTICKMAN TO EQUAL LAST 3 STAR CHARACTER
+        enemyCharacter = new StickmanRed();
+
+        enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
+        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
+        enemyHPBar.setProgress(1.0);
+        enemyHPBar.setStyle("-fx-accent: red");
+        enemyStickmanImage.setScaleX(-1);
+        currentLevel = "level3";
+    }
 
     public void attackButton (ActionEvent e) {
         combatSequence combat = new combatSequence();
         combat.timing = 600;
         combat.start();
+    }
+
+    public void unlockLevels() throws IOException {
+        Scanner input = new Scanner(new File("levels.txt"));
+        ArrayList<String> levelStatus = new ArrayList<>();
+        while (input.hasNext()){
+            String word = input.nextLine();
+            levelStatus.add(word);
+            System.out.println(word);
+        }
+        FileWriter levelWriter = new FileWriter("levels.txt");
+        if (currentLevel.equals("level1")) {
+            levelWriter.write("level2-true\n" + levelStatus.get(1));
+        }
+        else if (currentLevel.equals("level2")) {
+            levelWriter.write("level2-true\nlevel3-true\n");
+        }
+        else {
+            levelWriter.write("level2-true\nlevel3-true\n");
+        }
+        levelWriter.close();
     }
 
     public void combatEnded() throws IOException {
@@ -102,6 +145,7 @@ public class StageController {
             FileWriter fileWriter = new FileWriter("coinAmount.txt");
             fileWriter.write(Integer.toString(total + 1));
             fileWriter.close();
+            unlockLevels();
         }
         else {
             loseScreen.setDisable(false);
@@ -134,7 +178,7 @@ public class StageController {
         public void handle(long l) {
             if (timing == 600){
                 if (playerCharacter.getHP() > 0){
-                    attackRight(playerStickman);
+                    attackRight(playerStickmanImage);
                     timing -= 1;
                 }
                 else {
@@ -150,7 +194,7 @@ public class StageController {
             }
             else if (timing == 300){
                 if (enemyCharacter.getHP() > 0) {
-                    attackLeft(enemyStickman);
+                    attackLeft(enemyStickmanImage);
                     timing -= 1;
                 }
                 else {
