@@ -1,5 +1,5 @@
 package com.example.gachagame;
-
+//DISABLED CLASS
 public class Character {
     private boolean PM; // True = Physical, False = Magical
     private int strength;
