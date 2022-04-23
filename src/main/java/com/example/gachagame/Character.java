@@ -10,6 +10,7 @@ public class Character {
     private int accuracy;
     private int HP;
     private int mHP; // max HP
+    private boolean owned = false;
 
     public Character(boolean PM, int strength, int intelligence, int fortitude, int will, int speed, int accuracy, int HP, int mHP) {
         this.PM = PM;
@@ -51,6 +52,9 @@ public class Character {
     public int getMHP() {
         return this.mHP;
     }
+    public boolean isOwned() {
+        return this.owned;
+    }
 
     // Mutators:
     public void setPM(boolean PM) {
@@ -79,6 +83,9 @@ public class Character {
     }
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
+    }
+    public void owned() {
+        this.owned = true;
     }
 
     public String toString(){
