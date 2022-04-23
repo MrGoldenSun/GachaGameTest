@@ -22,7 +22,7 @@ public class Collection {
         } else {
             badLuck += 1;
             //randomly select a 1 star char (rand 0-2) -> switch case/if else statement to select the character
-            //read file and set a 1 star character to true (replace text after the dash, even if true, stays true);
+            //read file and set a 1 star character to true (replace text after the dash, even if true, stays true); d
         }
     }
 }
