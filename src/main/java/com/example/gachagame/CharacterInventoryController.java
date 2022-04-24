@@ -5,8 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.effect.BlurType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,31 +22,13 @@ public class CharacterInventoryController {
     public GachaGameApplication gameSettings = new GachaGameApplication();
 
     @FXML
-    private Button stickman1;
+    private SplitPane stickmanInfoPane;
     @FXML
-    private Button stickman2;
+    private Text stickmanInfoStats, stickmanInfoStory;
     @FXML
-    private Button stickman3;
+    private Label stickmanInfoName, stickmanInfoHometown;
     @FXML
-    private Button stickman4;
-    @FXML
-    private Button stickman5;
-    @FXML
-    private Button stickman6;
-    @FXML
-    private SplitPane stickman1Info;
-    @FXML
-    private SplitPane stickman2Info;
-    @FXML
-    private SplitPane stickman3Info;
-    @FXML
-    private SplitPane stickman4Info;
-    @FXML
-    private SplitPane stickman5Info;
-    @FXML
-    private SplitPane stickman6Info;
-    @FXML
-    private ImageView stickman3Block, stickman4Block, stickman5Block, stickman6Block;
+    private ImageView stickman3Block, stickman4Block, stickman5Block, stickman6Block, stickmanInfoImage;
 
     public void initializeCharacters() throws FileNotFoundException {
         Scanner stickmanFile = new Scanner(new File("stickman.txt"));
@@ -86,62 +72,86 @@ public class CharacterInventoryController {
     @FXML
     void pickStickman1(ActionEvent event) {
         System.out.println("Opening stickman1 description screen.");
-        stickman1Info.setOpacity(1);
-        stickman1Info.setDisable(false);
+        StickmanRed stick = new StickmanRed();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void pickStickman2(ActionEvent event) {
         System.out.println("Opening stickman2 description screen.");
-        stickman2Info.setOpacity(1);
-        stickman2Info.setDisable(false);
+        StickmanBlue stick = new StickmanBlue();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void pickStickman3(ActionEvent event) {
         System.out.println("Opening stickman3 description screen.");
-        stickman3Info.setOpacity(1);
-        stickman3Info.setDisable(false);
+        StickmanGoblin stick = new StickmanGoblin();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void pickStickman4(ActionEvent event) {
         System.out.println("Opening stickman4 description screen.");
-        stickman4Info.setOpacity(1);
-        stickman4Info.setDisable(false);
+        StickmanFarmer stick = new StickmanFarmer();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void pickStickman5(ActionEvent event) {
         System.out.println("Opening stickman5 description screen.");
-        stickman5Info.setOpacity(1);
-        stickman5Info.setDisable(false);
+        StickmanRogue stick = new StickmanRogue();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void pickStickman6(ActionEvent event) {
         System.out.println("Opening stickman6 description screen.");
-        stickman6Info.setOpacity(1);
-        stickman6Info.setDisable(false);
+        StickmanGoddess stick = new StickmanGoddess();
+        stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
+        stickmanInfoStats.setText(stick.getStats());
+        stickmanInfoName.setText(stick.getName());
+        stickmanInfoHometown.setText(stick.getHometown());
+        stickmanInfoStory.setText(stick.getStory());
+        stickmanInfoPane.setOpacity(1);
+        stickmanInfoPane.setDisable(false);
     }
 
     @FXML
     void closeMenu(ActionEvent event) {
         System.out.println("Closing Menu");
-        stickman1Info.setOpacity(0);
-        stickman1Info.setDisable(true);
-        stickman2Info.setOpacity(0);
-        stickman2Info.setDisable(true);
-        stickman3Info.setOpacity(0);
-        stickman3Info.setDisable(true);
-        stickman4Info.setOpacity(0);
-        stickman4Info.setDisable(true);
-        stickman5Info.setOpacity(0);
-        stickman5Info.setDisable(true);
-        stickman6Info.setOpacity(0);
-        stickman6Info.setDisable(true);
-
-
+        stickmanInfoPane.setOpacity(0);
+        stickmanInfoPane.setDisable(true);
     }
 
 }

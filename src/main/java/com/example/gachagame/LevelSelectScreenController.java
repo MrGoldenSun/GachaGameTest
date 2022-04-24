@@ -145,7 +145,7 @@ public class LevelSelectScreenController {
 
     @FXML
     void level3ChangeOpponent() {
-        currentOpponent.setImage(new Image("RedStickmanNoBackground.png"));
+        currentOpponent.setImage(new Image("mysterybust.png"));
     }
 
 }

@@ -1,7 +1,5 @@
 package com.example.gachagame;
 
-import javafx.scene.image.Image;
-
 public class CharacterCopy {
     private int attack;
     private int defense;
@@ -10,6 +8,7 @@ public class CharacterCopy {
     private int HP;
     private int mHP; // max HP
     private String characterPortrait;
+
 
     public CharacterCopy(int attack, int defense, int speed, int accuracy,
                          int HP, int mHP, String characterPortrait) {
