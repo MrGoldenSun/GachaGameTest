@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.util.Random;
@@ -19,7 +20,7 @@ public class CollectionController {
     GachaGameApplication gameSettings = new GachaGameApplication();
 
     @FXML
-    private Label coinCounter;
+    private Label coinCounter, displayLabel, nameLabel;
 
     @FXML
     private AnchorPane characterPane;
@@ -28,7 +29,7 @@ public class CollectionController {
     private ImageView characterUnlocked;
 
     @FXML
-    private Label displayLabel;
+    private Text textStats;
 
     private int badLuck = 0;
     private int coins;
@@ -59,11 +60,12 @@ public class CollectionController {
 
             int starRoll = rand.nextInt(100);
             // 3 star
-            if (starRoll > 95 || badLuck > 2) {
+            if (starRoll > 95 || badLuck == 2) {
                 badLuck = 0;
                 chosen = "stickman6";
                 characterUnlocked.setImage(new Image("goddess.png"));
-
+                textStats.setText("No class created for goddess yet");
+                nameLabel.setText("Need name from class");
             }
             // 2 star
             else if (starRoll > 70) {
@@ -72,9 +74,13 @@ public class CollectionController {
                 if (roll == 0) {
                     chosen = "stickman4";
                     characterUnlocked.setImage(new Image("farmer.png"));
+                    textStats.setText(new StickmanFarmer().getStats());
+                    nameLabel.setText("Need name from class");
                 } else if (roll == 1) {
                     chosen = "stickman5";
                     characterUnlocked.setImage(new Image("rogue.png"));
+                    textStats.setText("No class created for rogue yet");
+                    nameLabel.setText("Need name from class");
                 }
             }
             // 1 star
@@ -84,12 +90,18 @@ public class CollectionController {
                 if (roll == 0) {
                     chosen = "stickman1";
                     characterUnlocked.setImage(new Image("RedStickmanNoBackground.png"));
+                    textStats.setText(new StickmanRed().getStats());
+                    nameLabel.setText(new StickmanRed().getName());
                 } else if (roll == 1) {
                     chosen = "stickman2";
                     characterUnlocked.setImage(new Image("transparentblue.png"));
+                    textStats.setText(new StickmanBlue().getStats());
+                    nameLabel.setText("Need name from class");
                 } else if (roll == 2) {
                     chosen = "stickman3";
                     characterUnlocked.setImage(new Image("goblin.png"));
+                    textStats.setText(new StickmanGoblin().getStats());
+                    nameLabel.setText("Need name from class");
                 }
             }
 

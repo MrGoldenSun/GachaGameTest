@@ -64,10 +64,17 @@ public class CharacterCopy {
     }
     public void setCharacterPortrait(String characterPortrait) { this.characterPortrait = characterPortrait;}
 
+    public String getStats(){
+        return String.format("%s%s%n%s%s%n%s%s%n%s%s%n%s%s%n",
+                "Attack: ", this.getAttack(),
+                "Defense: ", this.getDefense(),
+                "Speed: ", this.getSpeed(),
+                "Accuracy: ", this.getAccuracy(),
+                "Hit Points: ", this.getMHP()
+        );
+    }
+
     public String toString(){
-        return String.format("%s%b%n %s%d%n",
-                "Strength: ", this.getAttack(),
-                "Intelligence: ", this.getDefense()
-                );
+        return getStats();
     }
 } // class end

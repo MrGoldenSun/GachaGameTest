@@ -19,9 +19,9 @@ public class LevelSelectScreenController {
     public GachaGameApplication gameSettings = new GachaGameApplication();
     public String color = "blue";
     @FXML
-    private RadioButton blueButton, redButton, farmerButton, stickman4Button, stickman5Button, stickman6Button;
+    private RadioButton blueButton, redButton, stickman3Button, stickman4Button, stickman5Button, stickman6Button;
     @FXML
-    private ImageView farmerPicture, currentOpponent;
+    private ImageView stickman3Picture, stickman4Picture, stickman5Picture, stickman6Picture, currentOpponent;
     @FXML
     private Button level2Button, level3Button;
 
@@ -44,21 +44,32 @@ public class LevelSelectScreenController {
     }
 
     public void unlockCharacter(String word){
-        if (word.equals("stickman3")) {
-            farmerButton.setDisable(false);
-            farmerPicture.setOpacity(1);
-        }
-        else {
-            System.out.println("WILL ADD REST LATER");
+        switch (word) {
+            case "stickman3" -> {
+                stickman3Button.setDisable(false);
+                stickman3Picture.setOpacity(1);
+            }
+            case "stickman4" -> {
+                stickman4Button.setDisable(false);
+                stickman4Picture.setOpacity(1);
+            }
+            case "stickman5" -> {
+                stickman5Button.setDisable(false);
+                stickman5Picture.setOpacity(1);
+            }
+            case "stickman6" -> {
+                stickman6Button.setDisable(false);
+                stickman6Picture.setOpacity(1);
+            }
         }
     }
 
     public void unlockLevels(String word) {
-        if (word.equals("level2")) {
-            level2Button.setDisable(false);
-        }
-        else if (word.equals("level3")) {
-            level3Button.setDisable(false);
+        switch (word){
+            case "level2" -> level2Button.setDisable(false);
+
+            case "level3" -> level3Button.setDisable(false);
+
         }
     }
 
@@ -108,17 +119,17 @@ public class LevelSelectScreenController {
         else if (blueButton.isSelected()){
             color = "blue";
         }
-        else if (farmerButton.isSelected()){
-            color = "farmer";
+        else if (stickman3Button.isSelected()){
+            color = "goblin";
         }
         else if (stickman4Button.isSelected()) {
-            System.out.println("Stickman 4");
+            color = "farmer";
         }
         else if (stickman5Button.isSelected()) {
-            System.out.println("Stickman 5");
+            color = "rogue";
         }
         else if (stickman6Button.isSelected()) {
-            System.out.println("Stickman 6");
+            color = "goddess";
         }
     }
 

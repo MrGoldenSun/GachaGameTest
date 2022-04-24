@@ -40,25 +40,37 @@ public class StageController {
 
     public void characterSelect(String colorChoice){
         chosenColor = colorChoice;
-        if (chosenColor.equals("blue")){
-            playerCharacter = new StickmanBlue();
-            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-            System.out.println("BLUE");
-        }
-        else if (chosenColor.equals("red")){
-            playerCharacter = new StickmanRed();
-            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-            System.out.println("RED");
-        }
-        else if (chosenColor.equals("farmer")){
-            playerCharacter = new StickmanFarmer();
-            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-            System.out.println("FARMER");
-        }
-        else if (chosenColor.equals("goblin")){
-            playerCharacter = new StickmanGoblin();
-            playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-            System.out.println("GOBLIN");
+        switch (chosenColor) {
+            case "blue" -> {
+                playerCharacter = new StickmanBlue();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("BLUE");
+            }
+            case "red" -> {
+                playerCharacter = new StickmanRed();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("RED");
+            }
+            case "goblin" -> {
+                playerCharacter = new StickmanGoblin();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("GOBLIN");
+            }
+            case "farmer" -> {
+                playerCharacter = new StickmanFarmer();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("FARMER");
+            }
+            case "rogue" -> {
+                playerCharacter = new StickmanGoblin();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("GOBLIN");
+            }
+            case "goddess" -> {
+                playerCharacter = new StickmanGoblin();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("GOBLIN");
+            }
         }
     }
 
@@ -173,7 +185,6 @@ public class StageController {
 
     private class combatSequence extends AnimationTimer{
         public int timing = 0;
-        public ImageView selectedImage;
         @Override
         public void handle(long l) {
             if (timing == 600){
