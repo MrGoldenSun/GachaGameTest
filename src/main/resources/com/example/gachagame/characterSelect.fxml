@@ -18,44 +18,59 @@
       <Button fx:id="Stickman4" layoutX="125.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman4" prefHeight="106.0" prefWidth="77.0" text="Stickman4" />
       <Button fx:id="Stickman5" layoutX="262.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman5" prefHeight="106.0" prefWidth="77.0" text="Stickman5" />
       <Button fx:id="Stickman6" layoutX="396.0" layoutY="230.0" mnemonicParsing="false" onAction="#pickStickman6" prefHeight="106.0" prefWidth="77.0" text="Stickman6" />
-      <ImageView fitHeight="400.0" fitWidth="606.0" layoutY="-1.0" pickOnBounds="true">
+      <ImageView disable="true" fitHeight="400.0" fitWidth="606.0" layoutY="-1.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../target/classes/charactersnocharacters.png" />
+            <Image url="@../../../allunlocked2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Stickman1Image" fitHeight="126.0" fitWidth="128.0" layoutX="103.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Stickman1Image" disable="true" fitHeight="126.0" fitWidth="128.0" layoutX="103.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../target/classes/redbust.png" />
+            <Image url="@../../../redbust.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Stickman2Image" fitHeight="126.0" fitWidth="121.0" layoutX="245.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Stickman2Image" disable="true" fitHeight="126.0" fitWidth="121.0" layoutX="245.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../target/classes/bluebust.png" />
+            <Image url="@../../../bluebust.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Stickman3Image" fitHeight="126.0" fitWidth="121.0" layoutX="385.0" layoutY="77.0" pickOnBounds="true">
+      <ImageView fx:id="Stickman3Image" disable="true" fitHeight="126.0" fitWidth="121.0" layoutX="385.0" layoutY="77.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../target/classes/goblinbust.png" />
+            <Image url="@../../../goblinbust.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Stickman3Block" fitHeight="134.0" fitWidth="122.0" layoutX="383.0" layoutY="71.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../../target/classes/mysterybust.png" />
+            <Image url="@../../../mysterybust.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Stickman4Block1" disable="true" fitHeight="124.0" fitWidth="120.0" layoutX="105.0" layoutY="222.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../farmerbust.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Stickman4Block" fitHeight="126.0" fitWidth="121.0" layoutX="103.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../target/classes/mysterybust.png" />
+            <Image url="@../../../mysterybust.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Stickman5Block1" disable="true" fitHeight="118.0" fitWidth="120.0" layoutX="246.0" layoutY="223.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../roguebust.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Stickman5Block" fitHeight="126.0" fitWidth="121.0" layoutX="245.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../target/classes/mysterybust.png" />
+            <Image url="@../../../mysterybust.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Stickman6Block1" disable="true" fitHeight="118.0" fitWidth="120.0" layoutX="385.0" layoutY="225.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../goddessbust.png" />
          </image>
       </ImageView>
       <ImageView fx:id="Stickman6Block" fitHeight="126.0" fitWidth="121.0" layoutX="384.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../target/classes/mysterybust.png" />
+            <Image url="@../../../mysterybust.png" />
          </image>
       </ImageView>
       <Button layoutX="20.0" layoutY="22.0" mnemonicParsing="false" onAction="#openTitleScreen" prefHeight="23.0" prefWidth="90.0" text="Back">
