@@ -1,4 +1,4 @@
 stickman3-false
 stickman4-false
-stickman5-false
-stickman6-true
+stickman5-true
+stickman6-false
