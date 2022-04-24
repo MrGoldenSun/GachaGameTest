@@ -2,7 +2,7 @@ package com.example.gachagame;
 
 public class StickmanGoddess extends CharacterCopy {
     public StickmanGoddess(){
-        super(20, 5, 25, 115, 30, 30, "goddess.png");
+        super(20, 5, 25, 115, 30, 30, "goddess.png", "3 stars");
     }
     public String getName(){return "The Goddess";}
     public String getHometown(){ return "The Holy Kingdom";}

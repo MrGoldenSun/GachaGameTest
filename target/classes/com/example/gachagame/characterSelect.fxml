@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gachagame.CharacterInventoryController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gachagame.CharacterInventoryController">
    <children>
       <Button fx:id="stickman1" layoutX="125.0" layoutY="88.0" mnemonicParsing="false" onAction="#pickStickman1" prefHeight="106.0" prefWidth="77.0" text="Stickman1" />
       <Button fx:id="stickman2" layoutX="262.0" layoutY="87.0" mnemonicParsing="false" onAction="#pickStickman2" prefHeight="106.0" prefWidth="77.0" text="Stickman2" />
@@ -100,7 +95,12 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="359.0" prefWidth="269.0">
                <children>
-                  <Label fx:id="stickmanInfoName" alignment="CENTER" layoutY="40.0" prefHeight="24.0" prefWidth="361.0" text="Gorforbius The Chosen" textAlignment="CENTER">
+                  <Label fx:id="stickmanStarLabel" layoutY="9.0" prefHeight="36.0" prefWidth="377.0" text="Stars:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Comic Sans MS" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stickmanInfoName" alignment="CENTER" layoutY="32.0" prefHeight="24.0" prefWidth="361.0" text="Gorforbius The Chosen" textAlignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS" size="25.0" />
                      </font>

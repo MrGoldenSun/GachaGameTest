@@ -26,9 +26,10 @@ public class CharacterInventoryController {
     @FXML
     private Text stickmanInfoStats, stickmanInfoStory;
     @FXML
-    private Label stickmanInfoName, stickmanInfoHometown;
+    private Label stickmanInfoName, stickmanInfoHometown, stickmanStarLabel;
     @FXML
     private ImageView stickman3Block, stickman4Block, stickman5Block, stickman6Block, stickmanInfoImage;
+
 
     public void initializeCharacters() throws FileNotFoundException {
         Scanner stickmanFile = new Scanner(new File("stickman.txt"));
@@ -80,6 +81,8 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
+
     }
 
     @FXML
@@ -93,6 +96,7 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
     }
 
     @FXML
@@ -106,6 +110,7 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
     }
 
     @FXML
@@ -119,6 +124,7 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
     }
 
     @FXML
@@ -132,6 +138,7 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
     }
 
     @FXML
@@ -145,6 +152,7 @@ public class CharacterInventoryController {
         stickmanInfoStory.setText(stick.getStory());
         stickmanInfoPane.setOpacity(1);
         stickmanInfoPane.setDisable(false);
+        stickmanStarLabel.setText(stick.getStars());
     }
 
     @FXML

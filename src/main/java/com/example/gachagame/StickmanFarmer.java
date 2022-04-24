@@ -4,7 +4,7 @@ public class StickmanFarmer extends CharacterCopy{
 
     public StickmanFarmer(){
         super(7, 4, 10, 85, 21,
-                21, "farmer.png");
+                21, "farmer.png", "1 star");
     }
     public String getName(){ return "Fred The Farmer";}
     public String getHometown(){ return "Idaho";}

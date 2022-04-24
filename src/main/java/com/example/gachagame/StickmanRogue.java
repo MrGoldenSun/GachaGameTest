@@ -2,7 +2,7 @@ package com.example.gachagame;
 
 public class StickmanRogue extends CharacterCopy{
     public StickmanRogue(){
-        super(5, 0, 45, 110, 17, 17, "rogue.png");
+        super(5, 0, 45, 110, 17, 17, "rogue.png", "1 star");
     }
     public String getName(){ return "Simon The Pilferer";}
     public String getHometown() { return "Tilted Towers";}

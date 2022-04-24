@@ -9,9 +9,11 @@ public class CharacterCopy {
     private int mHP; // max HP
     private String characterPortrait;
 
+    private String stars;
+
 
     public CharacterCopy(int attack, int defense, int speed, int accuracy,
-                         int HP, int mHP, String characterPortrait) {
+                         int HP, int mHP, String characterPortrait, String stars) {
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
@@ -19,6 +21,7 @@ public class CharacterCopy {
         this.HP = HP;
         this.mHP = mHP;
         this.characterPortrait = characterPortrait;
+        this.stars = stars;
     }
 
     // Accessors:
@@ -41,6 +44,8 @@ public class CharacterCopy {
         return this.mHP;
     }
     public String getCharacterPortrait() { return this.characterPortrait;}
+
+    public String getStars() { return this.stars; }
 
     // Mutators:
     public void setAttack(int attack) {

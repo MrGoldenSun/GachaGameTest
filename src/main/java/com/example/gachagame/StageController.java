@@ -69,7 +69,7 @@ public class StageController {
             case "goddess" -> {
                 playerCharacter = new StickmanGoddess();
                 playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-                System.out.println("GOBLIN");
+                System.out.println("GODDESS");
             }
         }
     }
