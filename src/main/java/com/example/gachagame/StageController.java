@@ -62,12 +62,12 @@ public class StageController {
                 System.out.println("FARMER");
             }
             case "rogue" -> {
-                playerCharacter = new StickmanGoblin();
+                playerCharacter = new StickmanRogue();
                 playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-                System.out.println("GOBLIN");
+                System.out.println("ROGUE");
             }
             case "goddess" -> {
-                playerCharacter = new StickmanGoblin();
+                playerCharacter = new StickmanGoddess();
                 playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
                 System.out.println("GOBLIN");
             }

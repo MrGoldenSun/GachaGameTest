@@ -14,14 +14,16 @@ public class StickmanRed extends CharacterCopy{
     }
 
     public String getName() {
-        return name;
+        return "Gorforbius The Chosen";
     }
 
     public String getHometown() {
-        return hometown;
+        return "Hometown: Austin, Texas";
     }
 
     public String getStory() {
-        return story;
+        return "Gorforbius is a simple stick man with a simple stick plan. Keep on swinging at " +
+                "things until they stop moving. His favorite things include big swords, the color red, and stale bread. " +
+                "He is noteable for having an IQ of 120 and placing 4th in Science Olympiad.";
     }
 }

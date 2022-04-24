@@ -17,7 +17,7 @@ public class GachaGameApplication extends Application {
 
     public void start(Stage stage) throws IOException{
         FileWriter coinWriter = new FileWriter("coinAmount.txt");
-        coinWriter.write("2");
+        coinWriter.write("4");
         coinWriter.close();
         FileWriter stickmanWriter = new FileWriter("stickman.txt");
         stickmanWriter.write("stickman3-false\nstickman4-false\nstickman5-false\nstickman6-false\n");

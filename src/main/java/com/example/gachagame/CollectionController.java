@@ -32,6 +32,7 @@ public class CollectionController {
     private Text textStats;
 
     private int badLuck = 0;
+    private boolean gottenGoddess = false;
     private int coins;
     Random rand = new Random();
 
@@ -60,48 +61,51 @@ public class CollectionController {
 
             int starRoll = rand.nextInt(100);
             // 3 star
-            if (starRoll > 95 || badLuck == 2) {
+            if (starRoll > 95 || badLuck == 4) {
                 badLuck = 0;
+                gottenGoddess = true;
                 chosen = "stickman6";
-                characterUnlocked.setImage(new Image("goddess.png"));
-                textStats.setText("No class created for goddess yet");
-                nameLabel.setText("Need name from class");
+                characterUnlocked.setImage(new Image(new StickmanGoddess().getCharacterPortrait()));
+                textStats.setText(new StickmanGoddess().getStats());
+                nameLabel.setText(new StickmanGoddess().getName());
             }
             // 2 star
             else if (starRoll > 70) {
-                badLuck += 1;
+                if(!gottenGoddess){
+                badLuck += 1;}
                 int roll = rand.nextInt(2);
                 if (roll == 0) {
-                    chosen = "stickman4";
-                    characterUnlocked.setImage(new Image("farmer.png"));
-                    textStats.setText(new StickmanFarmer().getStats());
-                    nameLabel.setText("Need name from class");
-                } else if (roll == 1) {
-                    chosen = "stickman5";
-                    characterUnlocked.setImage(new Image("rogue.png"));
-                    textStats.setText("No class created for rogue yet");
-                    nameLabel.setText("Need name from class");
-                }
-            }
-            // 1 star
-            else {
-                badLuck += 1;
-                int roll = rand.nextInt(3);
-                if (roll == 0) {
                     chosen = "stickman1";
-                    characterUnlocked.setImage(new Image("RedStickmanNoBackground.png"));
+                    characterUnlocked.setImage(new Image(new StickmanRed().getCharacterPortrait()));
                     textStats.setText(new StickmanRed().getStats());
                     nameLabel.setText(new StickmanRed().getName());
                 } else if (roll == 1) {
                     chosen = "stickman2";
-                    characterUnlocked.setImage(new Image("transparentblue.png"));
+                    characterUnlocked.setImage(new Image(new StickmanBlue().getCharacterPortrait()));
                     textStats.setText(new StickmanBlue().getStats());
-                    nameLabel.setText("Need name from class");
+                    nameLabel.setText(new StickmanBlue().getName());
+                }
+            }
+            // 1 star
+            else {
+                if(!gottenGoddess){
+                badLuck += 1; }
+                int roll = rand.nextInt(3);
+                if (roll == 0) {
+                    chosen = "stickman5";
+                    characterUnlocked.setImage(new Image(new StickmanRogue().getCharacterPortrait()));
+                    textStats.setText(new StickmanRogue().getStats());
+                    nameLabel.setText(new StickmanRogue().getName());
+                } else if (roll == 1) {
+                    chosen = "stickman4";
+                    characterUnlocked.setImage(new Image(new StickmanFarmer().getCharacterPortrait()));
+                    textStats.setText(new StickmanFarmer().getStats());
+                    nameLabel.setText(new StickmanFarmer().getName());
                 } else if (roll == 2) {
                     chosen = "stickman3";
-                    characterUnlocked.setImage(new Image("goblin.png"));
+                    characterUnlocked.setImage(new Image(new StickmanGoblin().getCharacterPortrait()));
                     textStats.setText(new StickmanGoblin().getStats());
-                    nameLabel.setText("Need name from class");
+                    nameLabel.setText(new StickmanGoblin().getName());
                 }
             }
 
