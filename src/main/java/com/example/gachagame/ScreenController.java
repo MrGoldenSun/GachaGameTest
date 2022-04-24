@@ -46,6 +46,8 @@ public class ScreenController {
     void openGacha(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("gachaScreen.fxml"));
         Parent root = loader.load();
+        CollectionController collectionController = loader.getController();
+        collectionController.initializeMuney();
         gameSettings.switchScenes(root);
     }
 

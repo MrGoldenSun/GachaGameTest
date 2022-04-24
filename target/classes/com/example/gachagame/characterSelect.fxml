@@ -78,7 +78,7 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <SplitPane fx:id="Stickman1Info" disable="true" dividerPositions="0.34296028880866425" layoutX="30.0" layoutY="20.0" opacity="0.0" prefHeight="361.0" prefWidth="556.0">
+      <SplitPane fx:id="Stickman1Info" disable="true" dividerPositions="0.34296028880866425" layoutX="30.0" layoutY="20.0" prefHeight="361.0" prefWidth="556.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
                <children>
@@ -152,7 +152,7 @@
             </AnchorPane>
          </items>
       </SplitPane>
-      <SplitPane fx:id="Stickman3Info1" disable="true" dividerPositions="0.34296028880866425" layoutX="30.0" layoutY="20.0" opacity="0.0" prefHeight="361.0" prefWidth="556.0">
+      <SplitPane fx:id="Stickman3Info" disable="true" dividerPositions="0.34296028880866425" layoutX="30.0" layoutY="20.0" opacity="0.0" prefHeight="361.0" prefWidth="556.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
                <children>
