@@ -30,6 +30,8 @@ public class ScreenController {
     void openInventory(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("characterSelect.fxml"));
         Parent root = loader.load();
+        CharacterInventoryController characterInventoryController = loader.getController();
+        characterInventoryController.initializeCharacters();
         gameSettings.switchScenes(root);
     }
 
