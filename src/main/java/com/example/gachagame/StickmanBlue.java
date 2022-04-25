@@ -1,5 +1,8 @@
 package com.example.gachagame;
 
+/**
+ * Character class for Blue stickman
+ */
 public class StickmanBlue extends CharacterCopy{
 
     public StickmanBlue(){

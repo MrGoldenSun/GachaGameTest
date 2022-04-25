@@ -1,4 +1,8 @@
 package com.example.gachagame;
+
+/**
+ * Character class for Goblin stickman
+ */
 public class StickmanGoblin extends CharacterCopy{
     // Uninteresting constructor for StickmanGoblin
     public StickmanGoblin(){

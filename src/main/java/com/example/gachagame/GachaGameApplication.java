@@ -14,6 +14,12 @@ import java.util.Objects;
 public class GachaGameApplication extends Application {
 
     private static Stage primaryStage;
+
+    /**
+     * Creates window for stage and sets up the application
+     * @param stage the Stage which is used
+     * @throws IOException File not found error
+     */
     public void start(Stage stage) throws IOException{
         // open a file to contain the data for how many coins the player has. This will be edited and referenced in various scenes.
         FileWriter coinWriter = new FileWriter("coinAmount.txt");
@@ -40,10 +46,15 @@ public class GachaGameApplication extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Used to switch between screens while keeping window size the same
+     * @param newScene the scene which we are switching to
+     */
     public void switchScenes(Parent newScene) {
         primaryStage.getScene().setRoot(newScene);
     }
 
+    // launch the application
     public static void main(String[] args) {
         launch(args);
     }

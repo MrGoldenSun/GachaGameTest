@@ -29,15 +29,26 @@ public class CharacterInventoryController {
     private ImageView stickman3Block, stickman4Block, stickman5Block, stickman6Block, stickmanInfoImage, stickmanInfoStars;
 
 
+    /**
+     * Reads the stickman.txt and determines which characters to unlock
+     * @throws FileNotFoundException File not found error
+     */
     public void initializeCharacters() throws FileNotFoundException {
         Scanner stickmanFile = new Scanner(new File("stickman.txt"));
+        // splits the line in the file into an array, and checks if there is a "true" in array
         while (stickmanFile.hasNext()) {
             String[] words = stickmanFile.nextLine().split("-");
+            // if there is a true, it goes to unlock the character
             if (words[1].equals("true")) {
                 unlockCharacter(words[0]);
             }
         }
     }
+
+    /**
+     * Uses a switch case in order to determine which character it will enable in the inventory screen
+     * @param word stickman name
+     */
     public void unlockCharacter(String word){
         switch (word) {
             case "stickman3" -> {
@@ -59,15 +70,23 @@ public class CharacterInventoryController {
         }
     }
 
+    /**
+     * Brings you back to the title screen
+     * @throws IOException  File not found error
+     */
     @FXML
     void openTitleScreen() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
         Parent root = loader.load();
         ScreenController screenController = loader.getController();
-        screenController.initializeAssets();
+        screenController.initializeAssets();  // used for the coin amount label
         gameSettings.switchScenes(root);
     }
 
+    /**
+     * Sets the stickman information on the pane
+     * @param stick The stickman character whose information is being used for display
+     */
     public void setStickmanPane(CharacterCopy stick) {
         stickmanInfoImage.setImage(new Image(stick.getCharacterPortrait()));
         stickmanInfoStats.setText(stick.getStats());
@@ -79,6 +98,10 @@ public class CharacterInventoryController {
         stickmanInfoStars.setImage(new Image(stick.getStars()));
     }
 
+    /**
+     * Button which sets the information for the red stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman1(ActionEvent event) {
         System.out.println("Opening stickman1 description screen.");
@@ -86,6 +109,10 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which sets the information for the blue stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman2(ActionEvent event) {
         System.out.println("Opening stickman2 description screen.");
@@ -93,6 +120,10 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which sets the information for the goblin stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman3(ActionEvent event) {
         System.out.println("Opening stickman3 description screen.");
@@ -100,6 +131,10 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which sets the information for the farmer stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman4(ActionEvent event) {
         System.out.println("Opening stickman4 description screen.");
@@ -107,6 +142,10 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which sets the information for rogue stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman5(ActionEvent event) {
         System.out.println("Opening stickman5 description screen.");
@@ -114,6 +153,10 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which sets the information for the goddess stickman
+     * @param event NULL
+     */
     @FXML
     void pickStickman6(ActionEvent event) {
         System.out.println("Opening stickman6 description screen.");
@@ -121,11 +164,14 @@ public class CharacterInventoryController {
         setStickmanPane(stick);
     }
 
+    /**
+     * Button which closes the stickman information Pane
+     * @param event NULL
+     */
     @FXML
     void closeMenu(ActionEvent event) {
         System.out.println("Closing Menu");
         stickmanInfoPane.setOpacity(0);
         stickmanInfoPane.setDisable(true);
     }
-
 }

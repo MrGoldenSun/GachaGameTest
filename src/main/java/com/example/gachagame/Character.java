@@ -1,5 +1,7 @@
 package com.example.gachagame;
-//DISABLED CLASS
+//
+// !!! DISABLED CLASS AND UMIMPLEMENTED IN CODE !!!
+//
 public class Character {
     private boolean PM; // True = Physical, False = Magical
     private int strength;
@@ -9,7 +11,7 @@ public class Character {
     private int speed;
     private int accuracy;
     private int HP;
-    private int mHP; // max HP
+    private int mHP; // max HP, important to note for calculations in battle
     private boolean owned = false;
 
     public Character(boolean PM, int strength, int intelligence, int fortitude, int will, int speed, int accuracy, int HP, int mHP) {

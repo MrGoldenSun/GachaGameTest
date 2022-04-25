@@ -1,5 +1,8 @@
 package com.example.gachagame;
 
+/**
+ * Used as outline for all player classes
+ */
 public class CharacterCopy {
     private int attack;
     private int defense;
@@ -13,6 +16,7 @@ public class CharacterCopy {
     private String hometown;
     private String story;
 
+    // Constructor which takes all parameters
     public CharacterCopy(int attack, int defense, int speed, int accuracy,
                          int HP, int mHP, String characterPortrait, String stars, String name, String hometown,
                          String story) {
@@ -81,6 +85,7 @@ public class CharacterCopy {
     public void setHometown(String hometown) {this.hometown = hometown;}
     public void setStory(String story) {this.story = story;}
 
+    // Used for displaying stats in multiple areas
     public String getStats(){
         return String.format("%s%s%n%s%s%n%s%s%n%s%s%n%s%s%n",
                 "Attack: ", this.getAttack(),
