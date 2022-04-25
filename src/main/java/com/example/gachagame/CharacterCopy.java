@@ -1,5 +1,10 @@
 package com.example.gachagame;
 
+/***
+ * CharacterCopy class is a copy of the original Character class with less stats. It is the working class we use to define
+ * character objects throughout the application. These stats control the character's information and their profile pictures
+ * to be used in any screens that show characters.
+ */
 public class CharacterCopy {
     private int attack;
     private int defense;
@@ -11,7 +16,7 @@ public class CharacterCopy {
 
     private String stars;
 
-
+    // Constructor for CharacterCopy class
     public CharacterCopy(int attack, int defense, int speed, int accuracy,
                          int HP, int mHP, String characterPortrait, String stars) {
         this.attack = attack;

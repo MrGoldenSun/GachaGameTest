@@ -1,7 +1,6 @@
 package com.example.gachagame;
-
 public class StickmanGoblin extends CharacterCopy{
-
+    // Uninteresting constructor for StickmanGoblin
     public StickmanGoblin(){
         super(13, 1, 20, 85, 16,
                 16, "goblin.png", "1 star");
