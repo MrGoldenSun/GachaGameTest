@@ -8,12 +8,14 @@ public class CharacterCopy {
     private int HP;
     private int mHP; // max HP
     private String characterPortrait;
-
     private String stars;
-
+    private String name;
+    private String hometown;
+    private String story;
 
     public CharacterCopy(int attack, int defense, int speed, int accuracy,
-                         int HP, int mHP, String characterPortrait, String stars) {
+                         int HP, int mHP, String characterPortrait, String stars, String name, String hometown,
+                         String story) {
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
@@ -22,6 +24,9 @@ public class CharacterCopy {
         this.mHP = mHP;
         this.characterPortrait = characterPortrait;
         this.stars = stars;
+        this.name = name;
+        this.hometown = hometown;
+        this.story = story;
     }
 
     // Accessors:
@@ -43,9 +48,13 @@ public class CharacterCopy {
     public int getMHP() {
         return this.mHP;
     }
-    public String getCharacterPortrait() { return this.characterPortrait;}
-
+    public String getCharacterPortrait() { return this.characterPortrait; }
     public String getStars() { return this.stars; }
+    public String getName() {return name;}
+    public String getHometown() {return hometown;}
+    public String getStory() {return story;}
+
+
 
     // Mutators:
     public void setAttack(int attack) {
@@ -66,7 +75,11 @@ public class CharacterCopy {
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
     }
-    public void setCharacterPortrait(String characterPortrait) { this.characterPortrait = characterPortrait;}
+    public void setCharacterPortrait(String characterPortrait) { this.characterPortrait = characterPortrait; }
+    public void setStars(String stars) { this.stars = stars; }
+    public void setName(String name) { this.name = name; }
+    public void setHometown(String hometown) {this.hometown = hometown;}
+    public void setStory(String story) {this.story = story;}
 
     public String getStats(){
         return String.format("%s%s%n%s%s%n%s%s%n%s%s%n%s%s%n",

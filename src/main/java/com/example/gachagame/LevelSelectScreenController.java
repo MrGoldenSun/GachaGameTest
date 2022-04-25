@@ -17,7 +17,8 @@ import java.util.Scanner;
 public class LevelSelectScreenController {
 
     public GachaGameApplication gameSettings = new GachaGameApplication();
-    public String color = "blue";
+    public String color = "red";
+
     @FXML
     private RadioButton blueButton, redButton, stickman3Button, stickman4Button, stickman5Button, stickman6Button;
     @FXML

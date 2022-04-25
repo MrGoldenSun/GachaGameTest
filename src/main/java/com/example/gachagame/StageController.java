@@ -41,15 +41,15 @@ public class StageController {
     public void characterSelect(String colorChoice){
         chosenColor = colorChoice;
         switch (chosenColor) {
-            case "blue" -> {
-                playerCharacter = new StickmanBlue();
-                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
-                System.out.println("BLUE");
-            }
             case "red" -> {
                 playerCharacter = new StickmanRed();
                 playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
                 System.out.println("RED");
+            }
+            case "blue" -> {
+                playerCharacter = new StickmanBlue();
+                playerStickmanImage.setImage(new Image(playerCharacter.getCharacterPortrait()));
+                System.out.println("BLUE");
             }
             case "goblin" -> {
                 playerCharacter = new StickmanGoblin();
@@ -74,49 +74,44 @@ public class StageController {
         }
     }
 
-    public void loadLevel1(String colorChoice){
-        characterSelect(colorChoice);
+    public void initializeLevel() {
         playerHP.setText(Integer.toString(playerCharacter.getHP()));
         playerHPBar.setProgress(1.0);
         playerHPBar.setStyle("-fx-accent: green");
-        enemyCharacter = new StickmanGoblin();
         enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
         enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
         enemyHPBar.setProgress(1.0);
         enemyHPBar.setStyle("-fx-accent: red");
         enemyStickmanImage.setScaleX(-1);
+    }
+
+    public void loadLevel1(String colorChoice){
+        characterSelect(colorChoice);
+        enemyCharacter = new StickmanGoblin();
+        initializeLevel();
         currentLevel = "level1";
     }
 
     public void loadLevel2(String colorChoice){
         characterSelect(colorChoice);
-        playerHP.setText(Integer.toString(playerCharacter.getHP()));
-        playerHPBar.setProgress(1.0);
-        playerHPBar.setStyle("-fx-accent: green");
         enemyCharacter = new StickmanBlue();
-        enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
-        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
-        enemyHPBar.setProgress(1.0);
-        enemyHPBar.setStyle("-fx-accent: red");
-        enemyStickmanImage.setScaleX(-1);
+        initializeLevel();
         currentLevel = "level2";
     }
 
     public void loadLevel3(String colorChoice){
-        // WILL PUT 3 STAR HERE
         characterSelect(colorChoice);
-        playerHP.setText(Integer.toString(playerCharacter.getHP()));
-        playerHPBar.setProgress(1.0);
-        playerHPBar.setStyle("-fx-accent: green");
-
-        // CREATE ENEMYSTICKMAN TO EQUAL LAST 3 STAR CHARACTER
-        enemyCharacter = new StickmanRed();
-
-        enemyStickmanImage.setImage(new Image(enemyCharacter.getCharacterPortrait()));
-        enemyHP.setText(Integer.toString(enemyCharacter.getHP()));
-        enemyHPBar.setProgress(1.0);
-        enemyHPBar.setStyle("-fx-accent: red");
-        enemyStickmanImage.setScaleX(-1);
+        enemyCharacter = new StickmanGoddess();
+        // If we don't want sammy to be op, DELETE this
+        ///////
+        enemyCharacter.setAttack(999);
+        enemyCharacter.setSpeed(999);
+        enemyCharacter.setAccuracy(999);
+        enemyCharacter.setHP(99);
+        enemyCharacter.setMHP(99);
+        ///////
+        initializeLevel();
+        enemyStickmanImage.setImage(new Image("sammysecretboss.png"));
         currentLevel = "level3";
     }
 

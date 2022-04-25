@@ -26,7 +26,7 @@ public class CollectionController {
     private AnchorPane characterPane;
 
     @FXML
-    private ImageView characterUnlocked;
+    private ImageView characterUnlocked, starLevel;
 
     @FXML
     private Text textStats;
@@ -53,6 +53,13 @@ public class CollectionController {
         coinCounter.setText(Integer.toString(coins));
     }
 
+    public void unlockCharacter(CharacterCopy chosenStick) {
+        characterUnlocked.setImage(new Image(chosenStick.getCharacterPortrait()));
+        textStats.setText(chosenStick.getStats());
+        nameLabel.setText(chosenStick.getName());
+        starLevel.setImage(new Image(chosenStick.getStars()));
+    }
+
     public void rollCharacter() throws IOException{
 
         if (coins > 0) {
@@ -65,9 +72,7 @@ public class CollectionController {
                 badLuck = 0;
                 gottenGoddess = true;
                 chosen = "stickman6";
-                characterUnlocked.setImage(new Image(new StickmanGoddess().getCharacterPortrait()));
-                textStats.setText(new StickmanGoddess().getStats());
-                nameLabel.setText(new StickmanGoddess().getName());
+                unlockCharacter(new StickmanGoddess());
             }
             // 2 star
             else if (starRoll > 70) {
@@ -76,14 +81,10 @@ public class CollectionController {
                 int roll = rand.nextInt(2);
                 if (roll == 0) {
                     chosen = "stickman1";
-                    characterUnlocked.setImage(new Image(new StickmanRed().getCharacterPortrait()));
-                    textStats.setText(new StickmanRed().getStats());
-                    nameLabel.setText(new StickmanRed().getName());
+                    unlockCharacter(new StickmanRed());
                 } else if (roll == 1) {
                     chosen = "stickman2";
-                    characterUnlocked.setImage(new Image(new StickmanBlue().getCharacterPortrait()));
-                    textStats.setText(new StickmanBlue().getStats());
-                    nameLabel.setText(new StickmanBlue().getName());
+                    unlockCharacter(new StickmanBlue());
                 }
             }
             // 1 star
@@ -93,19 +94,13 @@ public class CollectionController {
                 int roll = rand.nextInt(3);
                 if (roll == 0) {
                     chosen = "stickman5";
-                    characterUnlocked.setImage(new Image(new StickmanRogue().getCharacterPortrait()));
-                    textStats.setText(new StickmanRogue().getStats());
-                    nameLabel.setText(new StickmanRogue().getName());
+                    unlockCharacter(new StickmanRogue());
                 } else if (roll == 1) {
                     chosen = "stickman4";
-                    characterUnlocked.setImage(new Image(new StickmanFarmer().getCharacterPortrait()));
-                    textStats.setText(new StickmanFarmer().getStats());
-                    nameLabel.setText(new StickmanFarmer().getName());
+                    unlockCharacter(new StickmanFarmer());
                 } else if (roll == 2) {
                     chosen = "stickman3";
-                    characterUnlocked.setImage(new Image(new StickmanGoblin().getCharacterPortrait()));
-                    textStats.setText(new StickmanGoblin().getStats());
-                    nameLabel.setText(new StickmanGoblin().getName());
+                    unlockCharacter(new StickmanGoblin());
                 }
             }
 

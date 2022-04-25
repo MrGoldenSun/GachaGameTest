@@ -15,7 +15,7 @@
          <image>
             <Image url="@../../../paperbackground.png" />
          </image></ImageView>
-      <Label layoutX="239.0" layoutY="275.0" prefHeight="45.0" prefWidth="122.0" text="Use a coin?">
+      <Label layoutX="237.0" layoutY="296.0" prefHeight="45.0" prefWidth="122.0" text="Use a coin?">
          <font>
             <Font size="24.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="Comic Sans MS" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="rollButton" layoutX="231.0" layoutY="320.0" mnemonicParsing="false" onAction="#rollCharacter" prefHeight="44.0" prefWidth="138.0" text="Roll">
+      <Button fx:id="rollButton" layoutX="229.0" layoutY="341.0" mnemonicParsing="false" onAction="#rollCharacter" prefHeight="44.0" prefWidth="138.0" text="Roll">
          <font>
             <Font size="21.0" />
          </font>
@@ -40,7 +40,7 @@
             <Font name="Comic Sans MS" size="20.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="characterPane" layoutX="113.0" layoutY="37.0" opacity="0.0" prefHeight="233.0" prefWidth="370.0">
+      <AnchorPane fx:id="characterPane" layoutX="113.0" layoutY="37.0" opacity="0.0" prefHeight="268.0" prefWidth="370.0">
          <children>
             <Label fx:id="displayLabel" alignment="CENTER" layoutY="7.0" prefHeight="39.0" prefWidth="370.0" text="New Character Unlocked!">
                <font>
@@ -66,6 +66,11 @@
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Label>
+            <ImageView fx:id="starLevel" fitHeight="70.0" fitWidth="186.0" layoutX="163.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../3star.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
