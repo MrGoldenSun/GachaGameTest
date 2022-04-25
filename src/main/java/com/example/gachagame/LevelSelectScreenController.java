@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class LevelSelectScreenController {
-
     public GachaGameApplication gameSettings = new GachaGameApplication();
     public String color = "red";
 

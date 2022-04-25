@@ -14,17 +14,20 @@ import java.util.Objects;
 public class GachaGameApplication extends Application {
 
     private static Stage primaryStage;
-
     public void start(Stage stage) throws IOException{
+        // open a file to contain the data for how many coins the player has. This will be edited and referenced in various scenes.
         FileWriter coinWriter = new FileWriter("coinAmount.txt");
         coinWriter.write("4");
         coinWriter.close();
+        // Similar situation here. The gacha algorithm uses this file to distinguish if each character is owned or not
         FileWriter stickmanWriter = new FileWriter("stickman.txt");
         stickmanWriter.write("stickman3-false\nstickman4-false\nstickman5-false\nstickman6-false\n");
         stickmanWriter.close();
+        // Once again similar idea-- write a file that determines if levels 2 and 3 are unlocked.
         FileWriter levelWriter = new FileWriter("levels.txt");
         levelWriter.write("level2-false\nlevel3-false\n");
         levelWriter.close();
+        // initialize the scene in a fixed size window
         primaryStage = stage;
         primaryStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("titleScreen.fxml"));
