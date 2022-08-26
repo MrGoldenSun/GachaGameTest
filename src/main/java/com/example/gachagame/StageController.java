@@ -238,7 +238,7 @@ public class StageController {
         @Override
         public void handle(long l) {
             // player starts attacking
-            if (timing == 600){
+            if (timing == 600){  // NOTE THAT TIMING AFFECTS FRAMES, AND IT's BASED ON A MONITORS FPS
                 // check to make sure player max HP is greater than 0
                 if (playerCharacter.getHP() > 0){
                     attackRight(playerStickmanImage);

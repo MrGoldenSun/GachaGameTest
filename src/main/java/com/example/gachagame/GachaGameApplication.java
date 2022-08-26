@@ -4,12 +4,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Objects;
-
 
 public class GachaGameApplication extends Application {
 
@@ -43,6 +42,7 @@ public class GachaGameApplication extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.centerOnScreen();
         primaryStage.setTitle("Gacha Game");
+        primaryStage.getIcons().add(new Image("redbust.png"));
         primaryStage.show();
     }
 
